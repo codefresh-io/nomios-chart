@@ -49,7 +49,7 @@ The following tables lists the configurable parameters of the Hermes chart and t
 | `image.repository`     | Hermes image                                                     | `codefresh/nomios`           |
 | `image.tag`            | Hermes image tag                                                 | `0.4`                        |
 | `image.PullPolicy`     | Image pull policy                                                | `IfNotPresent`               |
-| `service.name`         | Kubernetes Service name                                          | `hermes`                     |
+| `service.name`         | Kubernetes Service name                                          | `nomios`                     |
 | `service.type`         | Kubernetes Service type                                          | `NodePort`                   |
 | `service.externalPort` | Service external port                                            | `80`                         |
 | `service.externalPort` | Service internal port                                            | `8080`                       |

@@ -44,20 +44,20 @@ The command removes all the Kubernetes components associated with the chart and 
 
 The following tables lists the configurable parameters of the Hermes chart and their default values.
 
-| Parameter              | Description                                                      | Default                      |
-| ---------------------- | ---------------------------------------------------------------- | ---------------------------- |
-| `image.repository`     | Hermes image                                                     | `codefresh/nomios`           |
-| `image.tag`            | Hermes image tag                                                 | `0.4`                        |
-| `image.PullPolicy`     | Image pull policy                                                | `IfNotPresent`               |
-| `service.name`         | Kubernetes Service name                                          | `nomios`                     |
-| `service.type`         | Kubernetes Service type                                          | `NodePort`                   |
-| `service.externalPort` | Service external port                                            | `80`                         |
-| `service.externalPort` | Service internal port                                            | `8080`                       |
-| `logLevel`             | Log level: `debug`, `info`, `warning`, `error`, `fatal`, `panic` | `info`                       |
-| `event.type`           | Trigger Event type (do not change)                               | `registry`                   |
-| `event.kind`           | Trigger Event kind (do not change)                               | `dockerhub`                  |
-| `event.action`         | Trigger Event event action name (do not change)                  | `push`                       |
-| `hermesService`        | Hermes Service name                                              | `{{ .Release.Name }}-hermes` |
-| `publicDnsName`        | Public DNS name used as root for external webhook URL            | `https://g.codefresh.io`     |
-| `ingress.enabled`      | Use Ingress Controller to expose webhook URL                     | `true`                       |
-| `ingres.path`          | Ingress routing path                                             | `/nomios/*`                  |
+| Parameter              | Description                                                      | Default                                                |
+| ---------------------- | ---------------------------------------------------------------- | ------------------------------------------------------ |
+| `image.repository`     | Hermes image                                                     | `codefresh/nomios`                                     |
+| `image.tag`            | Hermes image tag                                                 | `0.4`                                                  |
+| `image.PullPolicy`     | Image pull policy                                                | `IfNotPresent`                                         |
+| `service.name`         | Kubernetes Service name                                          | `nomios`                                               |
+| `service.type`         | Kubernetes Service type                                          | `NodePort`                                             |
+| `service.externalPort` | Service external port                                            | `80`                                                   |
+| `service.externalPort` | Service internal port                                            | `8080`                                                 |
+| `logLevel`             | Log level: `debug`, `info`, `warning`, `error`, `fatal`, `panic` | `info`                                                 |
+| `event.type`           | Trigger Event type (do not change)                               | `registry`                                             |
+| `event.kind`           | Trigger Event kind (do not change)                               | `dockerhub`                                            |
+| `event.action`         | Trigger Event event action name (do not change)                  | `push`                                                 |
+| `hermesService`        | Hermes Service name                                              | `{{ .Release.Name }}-hermes`                           |
+| `publicDnsName`        | Public DNS name used as root for external webhook URL            | `{{ .Values.global.appUrl}} or https://g.codefresh.io` |
+| `ingress.enabled`      | Use Ingress Controller to expose webhook URL                     | `true`                                                 |
+| `ingres.path`          | Ingress routing path                                             | `/nomios/*`                                            |

@@ -19,7 +19,7 @@ event:
 # Hermes Service name - deafult to "<release>-hermes"
 # hermesService: "..."
 
-# publicDnsName - default "https://g.codefresh.io"
+# publicDnsName - default to global.appUrl, if empty to "https://g.codefresh.io"
 # publicDnsName: "..."
   
 service:

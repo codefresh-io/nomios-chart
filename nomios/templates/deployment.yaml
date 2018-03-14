@@ -34,7 +34,7 @@ spec:
             - name: HERMES_SERVICE
               value: {{ .Values.hermesService | default (printf "%s-hermes" .Release.Name) }}
             - name: PUBLIC_DNS_NAME
-              value: {{ .Values.publicDnsName | default "https://g.codefresh.io" }}
+              value: {{ template "nomios.publicURL" . }}
             - name: PORT
               value: {{ .Values.service.internalPort | quote }}
           livenessProbe:

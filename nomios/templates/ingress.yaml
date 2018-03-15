@@ -1,6 +1,7 @@
 {{- if .Values.ingress.enabled -}}
 {{- $serviceName := include "nomios.fullname" . -}}
 {{- $servicePort := .Values.service.externalPort -}}
+{{- $publicDNS := include "nomios.publicDNS" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -23,8 +24,12 @@ spec:
             backend:
               serviceName: {{ $serviceName }}
               servicePort: {{ $servicePort }}
-  {{- if .Values.ingress.tls }}
   tls:
-{{ toYaml .Values.ingress.tls | indent 4 }}
-  {{- end -}}
+    - hosts:
+      - {{ $publicDNS }}
+      {{- if contains ".dev." $publicDNS }}
+      secretName: {{ template "fullname" . }}-star-selfsigned
+      {{- else }}
+      secretName: {{ template "fullname" . }}-star.codefresh.io
+      {{- end }}
 {{- end -}}

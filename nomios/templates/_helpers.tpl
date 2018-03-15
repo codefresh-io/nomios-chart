@@ -19,14 +19,14 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 Configure public DNS name for constructing webhook url
 first, look for `global.appURL`, if not set fallback to `https://g.codefresh.io`
 */}}
-{{- define "nomios.publicURL" -}}
+{{- define "nomios.publicDNS" -}}
 {{- if .Values.global -}}
 {{- if .Values.global.appUrl -}}
-{{- printf "https://%s" .Values.global.appUrl -}}
+{{- .Values.global.appUrl -}}
 {{- else -}}
-{{- default .Values.publicDnsName "https://g.codefresh.io" -}}
+{{- default .Values.publicDnsName "g.codefresh.io" -}}
 {{- end -}}
 {{- else -}}
-{{- default .Values.publicDnsName "https://g.codefresh.io" -}}
+{{- default .Values.publicDnsName "g.codefresh.io" -}}
 {{- end -}}
 {{- end -}}

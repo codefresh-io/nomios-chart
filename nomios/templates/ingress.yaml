@@ -28,8 +28,8 @@ spec:
     - hosts:
       - {{ $publicDNS }}
       {{- if contains ".dev." $publicDNS }}
-      secretName: {{ template "fullname" . }}-star-selfsigned
+      secretName: {{ .Release.Name }}-codefresh-star-selfsigned
       {{- else }}
-      secretName: {{ template "fullname" . }}-star.codefresh.io
+      secretName: {{.Release.Name }}-codefresh-star.codefresh.io
       {{- end }}
 {{- end -}}

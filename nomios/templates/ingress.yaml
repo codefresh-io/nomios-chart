@@ -16,6 +16,9 @@ metadata:
       {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
+  backend:
+    serviceName: {{ .Release.Name }}-cfui
+    servicePort: 80
   rules:
     - host: {{ .Values.ingress.host | quote }}
       http:

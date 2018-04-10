@@ -5,7 +5,7 @@ replicaCount: 1
 image:
   repository: codefresh/nomios
   tag: 0.4
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 # set log level
 logLevel: debug

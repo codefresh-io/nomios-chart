@@ -41,16 +41,18 @@ spec:
               value: {{ .Values.service.internalPort | quote }}
           livenessProbe:
             httpGet:
-              path: /version
-              port: {{ .Values.service.internalPort }}
-            initialDelaySeconds: 10
-            periodSeconds: 30
-          readinessProbe:
-            httpGet:
               path: /health
               port: {{ .Values.service.internalPort }}
-            initialDelaySeconds: 10
-            periodSeconds: 30
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            failureThreshold: 5
+          readinessProbe:
+            httpGet:
+              path: /ping
+              port: {{ .Values.service.internalPort }}
+            initialDelaySeconds: 5
+            periodSeconds: 15
+            failureThreshold: 5
           resources:
 {{ toYaml .Values.resources | indent 12 }}
     {{- if .Values.nodeSelector }}

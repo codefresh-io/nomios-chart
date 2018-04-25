@@ -19,8 +19,7 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 Create a default fully qualified app role.
 */}}
 {{- define "nomios.role" -}}
-{{- $name := default "dockerhub-event-provider" .Values.roleOverride -}}
-{{- printf "%s-%s" .Release.Name $name -}}
+{{- default "trigger-dockerhub" .Values.roleOverride -}}
 {{- end -}}
 
 {{/*

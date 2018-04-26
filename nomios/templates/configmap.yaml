@@ -32,7 +32,7 @@ data:
         {
           "name": "name",
           "type": "string",
-          "help": "docker image name"
+          "help": "docker image name",
           "validator": "^[a-z0-9_-]+$",
           "required": true
         },

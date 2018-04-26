@@ -10,6 +10,9 @@ image:
 # set log level
 logLevel: debug
 
+# true - set log format to Codefresh JSON
+logJSON: false
+
 # set event handler type and kind
 event:
   type: registry

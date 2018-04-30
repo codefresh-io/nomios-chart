@@ -46,6 +46,7 @@ spec:
               path: /health
               port: {{ .Values.service.internalPort }}
             initialDelaySeconds: 5
+            timeoutSeconds: 3
             periodSeconds: 15
             failureThreshold: 5
           readinessProbe:
@@ -53,6 +54,7 @@ spec:
               path: /ping
               port: {{ .Values.service.internalPort }}
             initialDelaySeconds: 5
+            timeoutSeconds: 3
             periodSeconds: 15
             failureThreshold: 5
           resources:

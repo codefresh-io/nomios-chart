@@ -47,6 +47,11 @@ data:
           "required": true
         }
       ],
+      "actions": [
+        "name": "push",
+        "label": "Push Image",
+        "help": "docker push event"
+      ],
       "filters": [
         {
           "name": "tag",

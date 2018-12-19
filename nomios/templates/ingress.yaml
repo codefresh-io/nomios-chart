@@ -20,10 +20,13 @@ spec:
     serviceName: {{ .Release.Name }}-cfui
     servicePort: 80
   rules:
+
     {{- if .Values.ingress.host }}
     - host: {{ .Values.ingress.host | quote }}
-    {{- end }}
       http:
+    {{- else }}
+    - http:
+    {{- end }}
         paths:
         - path: {{ .Values.ingress.path | quote }}
           backend:

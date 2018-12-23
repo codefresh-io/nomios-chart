@@ -13,6 +13,6 @@ home: https://github.com/codefresh-io/nomios
 sources:
   - https://github.com/codefresh-io/nomios-chart
 maintainers: # (optional)
-  - name: Alexei Ledenev
-    email: alexei.led@gmail.com
+  - name: Codefresh
+    email: dev@codefresh.io
 appVersion: 0.4

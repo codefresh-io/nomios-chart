@@ -3,6 +3,9 @@ global:
 # Default values for nomios.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+global:
+  codefresh: codefresh
+
 replicaCount: 1
 image:
   repository: codefresh/nomios

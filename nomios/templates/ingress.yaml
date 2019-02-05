@@ -20,13 +20,8 @@ spec:
     serviceName: {{ .Release.Name }}-cfui
     servicePort: 80
   rules:
-
-    {{- if .Values.ingress.host }}
-    - host: {{ .Values.ingress.host | quote }}
+    - host: '{{ .Values.ingress.domain | default .Values.global.appUrl }}'
       http:
-    {{- else }}
-    - http:
-    {{- end }}
         paths:
         - path: {{ .Values.ingress.path | quote }}
           backend:
@@ -34,10 +29,10 @@ spec:
             servicePort: {{ $servicePort }}
   tls:
     - hosts:
-      - {{ $publicDNS }}
-      {{- if contains ".dev." $publicDNS }}
-      secretName: {{ .Release.Name }}-codefresh-star-selfsigned
+      - '{{ .Values.ingress.domain | default .Values.global.appUrl }}'
+      {{- if .Values.ingress.webTlsSecretName }}
+      secretName: {{ .Release.Name }}-codefresh-{{ .Values.ingress.webTlsSecretName }}
       {{- else }}
-      secretName: {{.Release.Name }}-codefresh-star.codefresh.io
+      secretName: {{ .Release.Name }}-codefresh-star-selfsigned
       {{- end }}
 {{- end -}}
